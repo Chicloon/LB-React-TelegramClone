@@ -1,43 +1,43 @@
 'use strict';
 
 module.exports = function(app) {
-  app.dataSources.pgDs.automigrate('Chat', function(err) {
-    if (err) throw err;
+  // app.dataSources.pgDs.automigrate('Chat', function(err) {
+  //   if (err) throw err;
 
-    app.models.Chat.create(
-      [
-        {
-          messages: ['test', 'test2'],
-          members: ['Member1', 'Member2'],
-          name: 'ChatName',
-        },
-      ],
+  //   app.models.Chat.create(
+  //     [
+  //       {
+  //         messages: ['test', 'test2'],
+  //         members: ['Member1', 'Member2'],
+  //         name: 'ChatName',
+  //       },
+  //     ],
 
-      function(err, chats) {
-        if (err) throw err;
+  //     function(err, chats) {
+  //       if (err) throw err;
 
-        console.log('chats created \n', chats);
-      }
-    );
-  });
+  //       console.log('chats created \n', chats);
+  //     }
+  //   );
+  // });
 
-  app.dataSources.pgDs.automigrate('ChatMember', function(err) {
-    if (err) throw err;
+  // app.dataSources.pgDs.automigrate('ChatMember', function(err) {
+  //   if (err) throw err;
 
-    app.models.ChatMember.create(
-      [
-        {
-          role: 'User',
-        },
-      ],
+  //   app.models.ChatMember.create(
+  //     [
+  //       {
+  //         role: 'User',
+  //       },
+  //     ],
 
-      function(err, chatMembers) {
-        if (err) throw err;
+  //     function(err, chatMembers) {
+  //       if (err) throw err;
 
-        console.log('chatMembers created \n', chatMembers);
-      }
-    );
-  });
+  //       console.log('chatMembers created \n', chatMembers);
+  //     }
+  //   );
+  // });
 
   app.dataSources.mysqlDs.automigrate('CoffeeShop', function(err) {
     if (err) throw err;

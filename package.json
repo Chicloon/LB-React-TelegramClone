@@ -5,6 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "nodemon server/server.js",
+    "updatemodels": "node server/update-models.js",
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {

@@ -1,26 +1,29 @@
 #!/usr/bin/node
 
-let EventEmitter = require('events');
-let server = require('./server');
-// let debug = require ('debug')('smartplatform:server:update');
+/*
+  Скрипт взят из работы фирмы SmartUnit
+*/
+
+const EventEmitter = require('events');
+const server = require('./server');
 
 // Убрираем ограничение по количеству Emitters
 EventEmitter.defaultMaxListeners = 0;
 
-let pgSource = server.dataSources.postgres;
+const pgSource = server.dataSources.postgres;
 
 /**
  * Обновляет constraints моделей
  */
-let updateConstraints = (models, callback) => {
+const updateConstraints = (models, callback) => {
   let constraintsQuery = '';
 
   Object.keys(models).forEach(modelName => {
-    let model = models[modelName];
-    let relations = model.relations;
+    const model = models[modelName];
+    const relations = model.relations;
 
     Object.keys(relations || {}).forEach(relationName => {
-      let relation = relations[relationName];
+      const relation = relations[relationName];
 
       if (relation.type == 'belongsTo') {
         constraintsQuery += `
@@ -43,15 +46,13 @@ let updateConstraints = (models, callback) => {
   pgSource.connector.execute(constraintsQuery, callback);
 };
 
-// debug('Updating models...');
-
-// pgSource.autoupdate(function(error) {
-//   debug(error || 'OK');
-
-//   debug('Updating constraints...');
-
-//   updateConstraints(pgSource.models, error => {
-//     debug(error || 'OK');
-//     pgSource.disconnect();
-//   });
-// });
+pgSource.autoupdate(function(error) {
+  updateConstraints(pgSource.models, error => {
+    if (error) {
+      // throw error;
+    } else {
+      console.log('Models updated');
+    }
+    pgSource.disconnect();
+  });
+});

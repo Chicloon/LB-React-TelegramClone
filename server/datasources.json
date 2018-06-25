@@ -12,12 +12,12 @@
     "name": "mysqlDs",
     "connector": "mysql"
   },
-  "pgDs": {
+  "postgres": {
     "host": "localhost",
     "port": 5432,
     "database": "loopback",
     "password": "postgres",
-    "name": "pgDs",
+    "name": "postgres",
     "user": "postgres",
     "connector": "postgresql"
   }

@@ -1,28 +1,23 @@
 {
-  "name": "Chat",
+  "name": "Person",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "nickname": {
       "type": "string"
     },
-    "createdAt": {
-      "type": "Date"
+    "user": {
+      "type": "number"
     }
   },
   "validations": [],
   "relations": {
-    "channelMembers": {
+    "chats": {
       "type": "hasAndBelongsToMany",
       "model": "ChatMember"
-    },
-    "messages": {
-      "type": "hasMany",
-      "model": "Message",
-      "foreignKey": "messageId"
     }
   },
   "acls": [],

@@ -11,7 +11,21 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "chat": {
+      "type": "hasAndBelongsToMany",
+      "model": "Chat"
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "Message",
+      "foreignKey": "messageId"
+    },
+    "person": {
+      "type": "hasAndBelongsToMany",
+      "model": "Person"
+    }
+  },
   "acls": [],
   "methods": {}
 }

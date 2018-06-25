@@ -37,11 +37,19 @@
     "public": true
   },
   "Chat": {
-    "dataSource": "pgDs",
+    "dataSource": "postgres",
     "public": true
   },
   "ChatMember": {
-    "dataSource": "pgDs",
+    "dataSource": "postgres",
+    "public": true
+  },
+  "Message": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "Person": {
+    "dataSource": "postgres",
     "public": true
   }
 }
