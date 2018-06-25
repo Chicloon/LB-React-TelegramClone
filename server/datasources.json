@@ -1,0 +1,24 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlDs": {
+    "host": "demo.strongloop.com",
+    "port": 3306,
+    "database": "getting_started",
+    "username": "demo",
+    "password": "L00pBack",
+    "name": "mysqlDs",
+    "connector": "mysql"
+  },
+  "pgDs": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "loopback",
+    "password": "postgres",
+    "name": "pgDs",
+    "user": "postgres",
+    "connector": "postgresql"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Chat",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "messages": {
+      "type": [
+        "string"
+      ]
+    },
+    "members": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
