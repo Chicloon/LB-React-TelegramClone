@@ -8,16 +8,15 @@
   "properties": {
     "name": {
       "type": "string"
-    },
-    "createdAt": {
-      "type": "Date"
     }
   },
   "validations": [],
   "relations": {
-    "channelMembers": {
-      "type": "hasAndBelongsToMany",
-      "model": "ChatMember"
+    "chatMember": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": "chatId",
+      "through": "ChatMember"
     },
     "messages": {
       "type": "hasMany",

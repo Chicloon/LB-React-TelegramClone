@@ -16,8 +16,10 @@
   "validations": [],
   "relations": {
     "chats": {
-      "type": "hasAndBelongsToMany",
-      "model": "ChatMember"
+      "type": "hasMany",
+      "model": "Chat",
+      "foreignKey": "personId",
+      "through": "ChatMember"
     }
   },
   "acls": [],

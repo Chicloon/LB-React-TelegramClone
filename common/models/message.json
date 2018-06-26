@@ -9,22 +9,19 @@
     "text": {
       "type": "string",
       "required": true
-    },
-    "createdAt": {
-      "type": "Date"
     }
   },
   "validations": [],
   "relations": {
-    "chat": {
-      "type": "belongsTo",
-      "model": "Chat",
-      "foreignKey": "chatId"
-    },
     "author": {
       "type": "belongsTo",
       "model": "ChatMember",
       "foreignKey": "chatMemberId"
+    },
+    "channel": {
+      "type": "belongsTo",
+      "model": "Chat",
+      "forignKey": "chatId"
     }
   },
   "acls": [],

@@ -13,17 +13,19 @@
   "validations": [],
   "relations": {
     "chat": {
-      "type": "hasAndBelongsToMany",
-      "model": "Chat"
+      "type": "belongsTo",
+      "model": "Chat",
+      "foreignKey": "chatId"
+    },
+    "person": {
+      "type": "belongsTo",
+      "model": "Person",
+      "foreignKey": "personId"
     },
     "messages": {
       "type": "hasMany",
       "model": "Message",
       "foreignKey": "messageId"
-    },
-    "person": {
-      "type": "hasAndBelongsToMany",
-      "model": "Person"
     }
   },
   "acls": [],
