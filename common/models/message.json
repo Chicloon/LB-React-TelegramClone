@@ -15,8 +15,8 @@
   "relations": {
     "author": {
       "type": "belongsTo",
-      "model": "ChatMember",
-      "foreignKey": "chatMemberId"
+      "model": "Person",
+      "foreignKey": "personId"
     },
     "channel": {
       "type": "belongsTo",

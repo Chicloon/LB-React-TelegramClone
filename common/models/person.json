@@ -1,6 +1,6 @@
 {
   "name": "Person",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -8,9 +8,6 @@
   "properties": {
     "nickname": {
       "type": "string"
-    },
-    "user": {
-      "type": "number"
     }
   },
   "validations": [],
