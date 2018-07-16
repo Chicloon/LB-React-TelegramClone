@@ -21,7 +21,7 @@
     "chatMessages": {
       "type": "hasMany",
       "model": "Message",
-      "foreignKey": "messageId"
+      "foreignKey": "chatId"
     }
   },
   "acls": [],

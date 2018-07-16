@@ -17,11 +17,6 @@
       "type": "belongsTo",
       "model": "Person",
       "foreignKey": "personId"
-    },
-    "channel": {
-      "type": "belongsTo",
-      "model": "Chat",
-      "forignKey": "chatId"
     }
   },
   "acls": [],

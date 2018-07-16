@@ -17,6 +17,10 @@
       "model": "Chat",
       "foreignKey": "personId",
       "through": "ChatMember"
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "Message"
     }
   },
   "acls": [],
