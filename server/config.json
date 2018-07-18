@@ -18,5 +18,6 @@
     },
     "cors": false,
     "handleErrors": false
-  }
+  },
+  "cookieSecret": "secret"
 }
