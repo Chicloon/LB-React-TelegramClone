@@ -15,8 +15,12 @@
     "chatMember": {
       "type": "hasMany",
       "model": "Person",
-      "foreignKey": "chatId",
-      "through": "ChatMember"
+      "foreignKey": "memberId"
+    },
+    "chatOwner": {
+      "type": "belongsTo",
+      "model": "Person",
+      "foreignKey": "ownerId"
     },
     "chatMessages": {
       "type": "hasMany",
@@ -24,34 +28,6 @@
       "foreignKey": "chatId"
     }
   },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "DENY"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$owner",
-      "permission": "ALLOW",
-      "property": "find"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "create"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "find"
-    }
-  ],
+  "acls": [],
   "methods": {}
 }

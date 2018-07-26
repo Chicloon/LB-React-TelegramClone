@@ -5,24 +5,30 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "nickname": {
-      "type": "string"
-    }
-  },
+  "properties": {},
   "validations": [],
   "relations": {
     "chats": {
       "type": "hasMany",
       "model": "Chat",
-      "foreignKey": "personId",
-      "through": "ChatMember"
+      "foreignKey": "memberId"
+    },
+    "ownedChat": {
+      "type": "hasMany",
+      "model": "Chat",
+      "foreignKey": "ownerId"
     },
     "messages": {
       "type": "hasMany",
       "model": "Message"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }
