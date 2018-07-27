@@ -13,11 +13,7 @@ module.exports = function(Chat) {
   });
 
   Chat.listMembers = function(id, cb) {
-    Chat.findById(id, {include: {chatMembers: ['member']}}, cb);
-
-    Chat.findById(id, {include: ['chatMessages', 'chatMembers']}).then(res => {
-      console.log('Chat by id ===', id, res);
-    });
+    Chat.findById(id, {include: ['chatMembers']}, cb);
   };
 
   Chat.remoteMethod('listMembers', {
