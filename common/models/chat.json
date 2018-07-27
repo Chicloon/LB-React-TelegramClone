@@ -12,10 +12,11 @@
   },
   "validations": [],
   "relations": {
-    "chatMember": {
+    "chatMembers": {
       "type": "hasMany",
       "model": "Person",
-      "foreignKey": "memberId"
+      "foreignKey": "chatId",
+      "through": "ChatMember"
     },
     "chatOwner": {
       "type": "belongsTo",

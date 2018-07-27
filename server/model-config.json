@@ -40,6 +40,10 @@
     "dataSource": "postgres",
     "public": true
   },
+  "ChatMember": {
+    "dataSource": "postgres",
+    "public": true
+  },
   "Message": {
     "dataSource": "postgres",
     "public": true

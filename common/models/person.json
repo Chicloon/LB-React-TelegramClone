@@ -11,7 +11,8 @@
     "chats": {
       "type": "hasMany",
       "model": "Chat",
-      "foreignKey": "memberId"
+      "foreignKey": "memberId",
+      "through": "ChatMember"
     },
     "ownedChat": {
       "type": "hasMany",
