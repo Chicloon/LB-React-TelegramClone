@@ -15,7 +15,7 @@ module.exports = function(Chatmember) {
         personId: personId,
       });
     } else {
-      console.log('member exists');
+      newMember = {err: 'Пользоватеьл уже на канале'};
     }
     return newMember;
   };

@@ -5,7 +5,12 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "username": {
+      "type": "string",
+      "unique": true
+    }
+  },
   "validations": [],
   "relations": {
     "chats": {

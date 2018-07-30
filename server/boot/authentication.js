@@ -20,7 +20,7 @@ module.exports = function enableAuthentication(server) {
     })
   );
 
-  server.models.User.getDataSource().connector.observe(
+  server.models.Person.getDataSource().connector.observe(
     'before execute',
     function(ctx, next) {
       //		console.log ('Connector.execute:', ctx);
@@ -28,7 +28,11 @@ module.exports = function enableAuthentication(server) {
     }
   );
 
-  server.models.User.afterRemote('login', function(context, accessToken, next) {
+  server.models.Person.afterRemote('login', function(
+    context,
+    accessToken,
+    next
+  ) {
     if (accessToken != null) {
       if (accessToken.id != null) {
         context.res.cookie('access_token', accessToken.id, {
