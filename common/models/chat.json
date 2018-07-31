@@ -14,13 +14,13 @@
   "relations": {
     "chatMembers": {
       "type": "hasMany",
-      "model": "Person",
+      "model": "user",
       "foreignKey": "chatId",
       "through": "ChatMember"
     },
     "chatOwner": {
       "type": "belongsTo",
-      "model": "Person",
+      "model": "user",
       "foreignKey": "ownerId"
     },
     "chatMessages": {

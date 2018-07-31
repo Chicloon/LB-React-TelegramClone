@@ -16,6 +16,11 @@
   "User": {
     "dataSource": "postgres"
   },
+  "user": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {}
+  },
   "AccessToken": {
     "dataSource": "postgres",
     "public": false
@@ -45,10 +50,6 @@
     "public": true
   },
   "Message": {
-    "dataSource": "postgres",
-    "public": true
-  },
-  "Person": {
     "dataSource": "postgres",
     "public": true
   }

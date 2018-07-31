@@ -1,30 +1,39 @@
 'use strict';
+var loopback = require('loopback');
 
 module.exports = function(Chatmember) {
-  Chatmember.addMember = async (chatId, personId) => {
+  var app = require('../../server/server');
+
+  Chatmember.addMember = async (chatId, userId) => {
+    var newMember = {};
+    var chat = await app.models.Chat.findById(chatId);
+    var user = await app.models.user.findById(userId);
+
+    console.log('Chat and User', chat);
+    if (!chat || !user) {
+      return (newMember = {err: 'Пользователь или канал не существуют'});
+    }
+
     var member = await Chatmember.findOne({
       where: {
-        and: [{chatId: chatId}, {personId: personId}],
+        and: [{chatId: chatId}, {userId: userId}],
       },
     });
-
+    console.log('found member ', member);
     if (!member) {
       console.log('new member');
-      var newMember = await Chatmember.create({
+      newMember = await Chatmember.create({
         chatId: chatId,
-        personId: personId,
+        userId: userId,
       });
     } else {
-      newMember = {err: 'Пользоватеьл уже на канале'};
+      newMember = {err: 'Пользователь уже на канале'};
     }
     return newMember;
   };
 
   Chatmember.remoteMethod('addMember', {
-    accepts: [
-      {arg: 'chatId', type: 'number'},
-      {arg: 'personId', type: 'number'},
-    ],
+    accepts: [{arg: 'chatId', type: 'number'}, {arg: 'userId', type: 'number'}],
     returns: {arg: 'messages', type: 'array'},
     http: {path: '/add-member', verb: 'post'},
   });

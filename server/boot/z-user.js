@@ -3,9 +3,9 @@ var loopback = require('loopback');
 module.exports = app => {
   // Добавление дополнительных полей для пользователей
 
-  app.models.User.embedsOne('Person', {
-    property: 'person',
-  });
+  // app.models.User.embedsOne('Person', {
+  //   property: 'person',
+  // });
 
   // Создание нулевого пользователя, если база пустая
   app.models.User.find((err, res) => console.log(res));

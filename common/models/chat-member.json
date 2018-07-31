@@ -17,10 +17,10 @@
       "model": "Chat",
       "foreignKey": "chatId"
     },
-    "person": {
+    "user": {
       "type": "belongsTo",
-      "model": "Person",
-      "foreignKey": "personId"
+      "model": "user",
+      "foreignKey": "userId"
     }
   },
   "acls": [],

@@ -1,22 +1,25 @@
 {
-  "name": "Person",
+  "name": "user",
   "base": "User",
   "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
   "properties": {
+    "firstname": {
+      "type": "string",
+      "unique": true
+    },
     "username": {
       "type": "string",
       "unique": true
     }
   },
+  "restrictResetPasswordTokenScope": true,
+  "emailVerificationRequired": true,
   "validations": [],
   "relations": {
     "chats": {
       "type": "hasMany",
       "model": "Chat",
-      "foreignKey": "personId",
+      "foreignKey": "userId",
       "through": "ChatMember"
     },
     "ownedChat": {
@@ -32,9 +35,10 @@
   "acls": [
     {
       "principalType": "ROLE",
-      "principalId": "$authenticated",
+      "principalId": "$everyone",
+      "accessType": "READ",
       "permission": "ALLOW"
     }
   ],
-  "methods": {}
+  "methods": []
 }
